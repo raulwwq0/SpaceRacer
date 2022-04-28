@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Matrix4;
 public interface Lienzo {
 
     void draw(Dibujable miDibujo, float fAncho, float fAlto);
+    void draw(Dibujable miDibujo, float posX, float posY, float fAncho, float fAlto);
     void drawRegion(TextureRegion miRegion, float fAncho, float fAlto);
     void setProjectionMatrix(Matrix4 combined);
     void begin();

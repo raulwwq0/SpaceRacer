@@ -1,7 +1,6 @@
 package es.iespolitecnicomalaga.spaceracer;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;
 
@@ -27,10 +26,10 @@ public class PanelNumeros {
 
 
     //Almacenaremos números de base en un array list "digitos"
-    protected ArrayList<Texture> listaDigitos;
+    protected ArrayList<Dibujable> listaDigitos;
 
     //Almacenaremos los números necesarios para pintar el número asignado en otro arraylist
-    protected ArrayList<Texture> listaMostrada;
+    protected ArrayList<Dibujable> listaMostrada;
 
 
     protected float fPosX;
@@ -52,13 +51,13 @@ public class PanelNumeros {
         fAncho = nAncho;
 
         //creamos el array de base y el array a pintar (con el 0)
-        listaDigitos = new ArrayList<Texture>();
+        listaDigitos = new ArrayList<Dibujable>();
         for (int i = 0;i<10;i++) {
-            Texture nuevoDigito = new Texture(NOMBRE_SPRITES + String.valueOf(i) + EXT_SPRITES);
+            DibujableAdaptador nuevoDigito = new DibujableAdaptador(new Texture(NOMBRE_SPRITES + String.valueOf(i) + EXT_SPRITES));
             listaDigitos.add(nuevoDigito);
         }
 
-        listaMostrada = new ArrayList<Texture>();
+        listaMostrada = new ArrayList<Dibujable>();
         listaMostrada.add(listaDigitos.get(0));
         iValorAlmacenado = 0;
 
@@ -67,12 +66,12 @@ public class PanelNumeros {
     //Resto de comportamientos
 
     //Método pintarse
-    public void pintarse(SpriteBatch miSB) {
+    public void pintarse(Lienzo miSB) {
         float pX,pY;
         pX = fPosX;
         pY = fPosY;
-        for (Texture digito :listaMostrada) {
-            miSB.draw(digito,pX,pY,fAncho,fAncho);
+        for (Dibujable digito :listaMostrada) {
+            miSB.draw(digito, pX, pY, fAncho,fAncho);
             pX += fAncho;
         }
 
@@ -109,7 +108,7 @@ public class PanelNumeros {
 
     //Método dispose. Para eliminar los recursos
     public void dispose() {
-        for ( Texture t :listaDigitos) {
+        for ( Dibujable t :listaDigitos) {
             t.dispose();
         }
     }

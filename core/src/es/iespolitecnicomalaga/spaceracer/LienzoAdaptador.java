@@ -21,6 +21,11 @@ public class LienzoAdaptador implements Lienzo{
     }
 
     @Override
+    public void draw(Dibujable miDibujo, float posX, float posY, float fAncho, float fAlto) {
+        miSB.draw(miDibujo.getTexture(),posX,posY,fAncho,fAlto);
+    }
+
+    @Override
     public void drawRegion(TextureRegion miRegion, float fAncho, float fAlto) {
         miSB.draw(miRegion,fAncho,fAlto);
     }
