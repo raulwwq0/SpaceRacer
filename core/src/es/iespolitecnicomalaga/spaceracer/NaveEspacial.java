@@ -5,7 +5,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import jdk.nashorn.internal.runtime.ConsString;
+//import jdk.nashorn.internal.runtime.ConsString;
 
 /**
  * Clase NaveEspacial. Representa a una nave principal o enemiga. Estas naves pueden disparar
