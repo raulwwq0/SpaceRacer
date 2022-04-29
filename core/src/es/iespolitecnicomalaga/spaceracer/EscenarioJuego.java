@@ -45,7 +45,7 @@ public class EscenarioJuego extends Escenario{
     protected void controlEstado() {
 
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
-
+        miNave.moverse();
         //Tiempo
         contarSegundos();
 
@@ -142,12 +142,15 @@ public class EscenarioJuego extends Escenario{
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if(screenX < iAnchoPant/2){
-            miNave.posX -= miNave.velX;
-        } else if(screenX >= iAnchoPant/2){
-            miNave.posX += miNave.velX;
-        }
+        if (screenX > (iAnchoPant/2)) miNave.velX = 7.0F;
+        else miNave.velX = -7.0F;
         return super.touchDown(screenX, screenY, pointer, button);
+    }
+
+    @Override
+    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+        miNave.velX = 0F;
+        return super.touchUp(screenX, screenY, pointer, button);
     }
 
     public NavesAliadas getNave(){

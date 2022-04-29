@@ -46,14 +46,9 @@ public class ControladorJuego {
     //Escenas
     protected EscenarioInicio escenaInicio;
 
-    //ESTO ELIMINAR
-    protected EscenarioInicio escenaJuego;
-    protected EscenarioInicio escenaFinPartida;
-
-
     //ESTO DESCOMENTAR
-    //protected EscenarioJuego escenaJuego;
-    //protected EscenarioFinal escenaFinPartida;
+    protected EscenarioJuego escenaJuego;
+    protected EscenarioFinal escenaFinPartida;
 
     protected Escenario escenaActiva;
 
@@ -81,12 +76,8 @@ public class ControladorJuego {
         camera.setToOrtho(false, PANTALLA_ANCHO, PANTALLA_ALTO);
         escenaInicio = new EscenarioInicio(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
 
-        //ESTO ELIMINAR
-        escenaJuego = escenaInicio;
-        escenaFinPartida = escenaJuego;
-
         //ESTO DESCOMENTAR
-        //escenaJuego = new EscenarioJuego(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
+        escenaJuego = new EscenarioJuego(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
         //escenaFinPartida = new EscenarioFinPartida(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
         escenaActiva = escenaInicio;
         miEstadoJuego = EstadoJuego.PANTALLA_INICIO;
