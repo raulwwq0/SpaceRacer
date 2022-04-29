@@ -22,7 +22,6 @@ public class EscenarioFinal extends Escenario{
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
 
-
         //Dibujable y estancia del dibujo te mamaste
         Dibujable dibujoTeMamaste = new DibujableAdaptador(new Texture("temamaste.png"));
         teMamaste = new ObjetoVolador(200,475,0.0f,0.0f,dibujoTeMamaste);
@@ -52,10 +51,13 @@ public class EscenarioFinal extends Escenario{
     @Override
     protected void controlEstado() {
         super.controlEstado();
+        PanelNumeros.getSingleton().setbActivo(true);
+        PanelNumeros.getSingleton().cambiarPosicionYAncho(400,0, 500);
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         //La escena parallax
         miPE.animar();
         //colisiones
+        System.out.println(PanelNumeros.getSingleton().getValor());
     }
 
     @Override

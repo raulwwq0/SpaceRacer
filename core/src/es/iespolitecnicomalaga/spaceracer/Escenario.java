@@ -69,6 +69,12 @@ public class Escenario extends InputAdapter {
             miOV.pintarse(lienzoEscena);
         }
 
+        // Pintamos el marcador si existe
+        if (PanelNumeros.getSingleton().isbActivo()) {
+            System.out.println(PanelNumeros.getSingleton().isbActivo());
+            PanelNumeros.getSingleton().pintarse(lienzoEscena);
+        }
+
         lienzoEscena.end();
 
     }

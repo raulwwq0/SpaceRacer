@@ -44,7 +44,10 @@ public class EscenarioJuego extends Escenario{
     }
     @Override
     protected void controlEstado() {
+        PanelNumeros.getSingleton().setbActivo(true);
+        PanelNumeros.getSingleton().cambiarPosicionYAncho(0,this.iAltoPant - 50, 50);
 
+        System.out.println(PanelNumeros.getSingleton().getValor());
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         miNave.moverse();
         noPuedeMoverse();
@@ -109,6 +112,7 @@ public class EscenarioJuego extends Escenario{
         for (i = 1;i<misObjetosEnPantalla.size(); i++){
             obstaculo = misObjetosEnPantalla.get(i);
             if (obstaculo.getPosY() < -60){
+                PanelNumeros.getSingleton().incrementa(1);
                 misObjetosEnPantalla.remove(obstaculo);
             };
         }

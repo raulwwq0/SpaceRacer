@@ -25,6 +25,8 @@ public class PanelNumeros {
     private static final String EXT_SPRITES =".png";
 
 
+    public static PanelNumeros miSingleton;
+
     //Almacenaremos números de base en un array list "digitos"
     protected ArrayList<Dibujable> listaDigitos;
 
@@ -37,6 +39,8 @@ public class PanelNumeros {
     protected float fAncho;
 
     protected int iValorAlmacenado;
+
+    private boolean bActivo;
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //COMPORTAMIENTO
@@ -45,10 +49,11 @@ public class PanelNumeros {
 
 
     //CONSTRUCTORES
-    public PanelNumeros(float pX, float pY, float nAncho) {
-        fPosX = pX;
-        fPosY = pY;
-        fAncho = nAncho;
+    private PanelNumeros() {
+        fPosX = 0;
+        fPosY = 0;
+        fAncho = 0;
+        bActivo = false;
 
         //creamos el array de base y el array a pintar (con el 0)
         listaDigitos = new ArrayList<Dibujable>();
@@ -61,6 +66,13 @@ public class PanelNumeros {
         listaMostrada.add(listaDigitos.get(0));
         iValorAlmacenado = 0;
 
+    }
+
+    public static PanelNumeros getSingleton() {
+        if (miSingleton == null) {
+            miSingleton = new PanelNumeros();
+        }
+        return miSingleton;
     }
 
     //Resto de comportamientos
@@ -106,11 +118,29 @@ public class PanelNumeros {
         }
     }
 
+    public void cambiarPosicionYAncho(float pX, float pY, float nAncho) {
+        fPosX = pX;
+        fPosY = pY;
+        fAncho = nAncho;
+    }
+
     //Método dispose. Para eliminar los recursos
     public void dispose() {
         for ( Dibujable t :listaDigitos) {
             t.dispose();
         }
+    }
+
+    public boolean isbActivo() {
+        return bActivo;
+    }
+
+    public void setbActivo(boolean bActivo) {
+        this.bActivo = bActivo;
+    }
+
+    public int getValor() {
+        return iValorAlmacenado;
     }
 }
 
