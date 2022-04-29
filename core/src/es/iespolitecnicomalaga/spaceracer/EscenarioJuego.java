@@ -11,6 +11,7 @@ public class EscenarioJuego extends Escenario{
     private NavesAliadas miNave;
 
     private Dibujable imagenObstaculo;
+    Dibujable miDibujoNormal;
 
     //Contador Tiempo
     private int tiempo; //Segundos, por si los necesitamos
@@ -30,7 +31,7 @@ public class EscenarioJuego extends Escenario{
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
 
         //Nave principal
-        Dibujable miDibujoNormal = new DibujableAdaptador(new Texture("aliada5azul.png"));
+        miDibujoNormal = new DibujableAdaptador(new Texture("aliada5azul.png"));
         Dibujable miExplosion = new DibujableAdaptador(new Texture("explosion.png"));
         miNave = new NavesAliadas(this.iAnchoPant/2, this.iAltoPant / 8, this.iAnchoPant, miDibujoNormal, miExplosion);
 
@@ -46,6 +47,7 @@ public class EscenarioJuego extends Escenario{
 
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         miNave.moverse();
+        noPuedeMoverse();
         //Tiempo
         contarSegundos();
 
@@ -138,6 +140,12 @@ public class EscenarioJuego extends Escenario{
             tiempo++;
             tasaObstaculos += 0.0005f;
         };
+    }
+
+    public void noPuedeMoverse() {
+        if ((miNave.posX + (miDibujoNormal.getWidth() / 2)) > iAnchoPant){
+            miNave.posX = iAnchoPant - (miDibujoNormal.getWidth() / 2);
+        }else if ((miNave.posX - (miDibujoNormal.getWidth() / 2)) < 0) miNave.posX = (miDibujoNormal.getWidth() / 2);
     }
 
     @Override
