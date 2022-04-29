@@ -11,7 +11,7 @@ public class EscenarioJuego extends Escenario{
     private NavesAliadas miNave;
 
     private Dibujable imagenObstaculo;
-    Dibujable miDibujoNormal;
+    private Dibujable miDibujoNormal;
 
     //Contador Tiempo
     private int tiempo; //Segundos, por si los necesitamos
