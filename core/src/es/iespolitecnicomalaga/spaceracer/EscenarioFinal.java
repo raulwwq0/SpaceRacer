@@ -63,7 +63,7 @@ public class EscenarioFinal extends Escenario{
         //¿Qué pasa si pulsan la pantalla, pues que nos vamos a la pantalla del juego... Hay que notificar al controlador
         //principal para que cambie el escenario
         miMusica.stop();
-
+        ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.PANTALLA_INICIO);
         return super.touchDown(screenX, screenY, pointer, button);
     }
 

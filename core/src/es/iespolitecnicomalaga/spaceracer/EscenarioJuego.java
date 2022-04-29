@@ -125,6 +125,7 @@ public class EscenarioJuego extends Escenario{
             obstaculo = misObjetosEnPantalla.get(i);
             if (obstaculo.colisiona(xwing) && (miNave.explotar == false)){
                 miNave.explota();
+                ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.FINAL_PARTIDA);
             };
         }
     }

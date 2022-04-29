@@ -78,7 +78,7 @@ public class ControladorJuego {
 
         //ESTO DESCOMENTAR
         escenaJuego = new EscenarioJuego(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
-        //escenaFinPartida = new EscenarioFinPartida(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
+        escenaFinPartida = new EscenarioFinal(PANTALLA_ANCHO,PANTALLA_ALTO,miLienzo,camera);
         escenaActiva = escenaInicio;
         miEstadoJuego = EstadoJuego.PANTALLA_INICIO;
         Gdx.input.setInputProcessor(escenaActiva);
