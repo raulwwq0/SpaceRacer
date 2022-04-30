@@ -22,6 +22,9 @@ public class EscenarioFinal extends Escenario{
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
 
+        ControladorAnimaciones animacionFinal = new ControladorAnimaciones("animacionFinalSprites", "gif", 82, 0.01f);
+        misAnimaciones.add(animacionFinal);
+
         //Dibujable y estancia del dibujo te mamaste
         Dibujable dibujoTeMamaste = new DibujableAdaptador(new Texture("temamaste.png"));
         teMamaste = new ObjetoVolador(200,475,0.0f,0.0f,dibujoTeMamaste);

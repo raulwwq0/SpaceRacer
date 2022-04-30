@@ -24,7 +24,7 @@ public class Escenario extends InputAdapter {
     Music miMusica;
     ArrayList<ObjetoVolador> misObjetosEnPantalla;
     ParallaxEscena miPE;
-    ControladorAnimaciones animacionInicio;
+    ArrayList<ControladorAnimaciones> misAnimaciones;
 
     //COMPORTAMIENTO
 
@@ -36,6 +36,7 @@ public class Escenario extends InputAdapter {
         misObjetosEnPantalla = new ArrayList<>();
         miMusica = null;
         miPE = new ParallaxEscena(false);
+        misAnimaciones = new ArrayList<>();
         this.create();
 
     }
@@ -66,8 +67,8 @@ public class Escenario extends InputAdapter {
 
         miPE.render(lienzoEscena);
 
-        if (animacionInicio != null) {
-            animacionInicio.pintarse(lienzoEscena);
+        for (ControladorAnimaciones animacion : misAnimaciones) {
+            animacion.pintarse(lienzoEscena);
         }
 
         //pintamos los objetos sin más
