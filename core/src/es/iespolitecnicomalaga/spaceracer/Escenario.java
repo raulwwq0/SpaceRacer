@@ -24,6 +24,7 @@ public class Escenario extends InputAdapter {
     Music miMusica;
     ArrayList<ObjetoVolador> misObjetosEnPantalla;
     ParallaxEscena miPE;
+    ControladorAnimaciones animacionInicio;
 
     //COMPORTAMIENTO
 
@@ -64,6 +65,11 @@ public class Escenario extends InputAdapter {
         lienzoEscena.begin();
 
         miPE.render(lienzoEscena);
+
+        if (animacionInicio != null) {
+            animacionInicio.pintarse(lienzoEscena);
+        }
+
         //pintamos los objetos sin más
         for (ObjetoVolador miOV:misObjetosEnPantalla) {
             miOV.pintarse(lienzoEscena);

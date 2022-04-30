@@ -8,10 +8,6 @@ import com.badlogic.gdx.graphics.Texture;
 public class EscenarioInicio extends Escenario {
     //ESTADO
 
-    //Aquí definimos los objetos que estarán en la ventana inicial
-    NavesAliadas miNave;
-
-
     //COMPORTAMIENTO
     public EscenarioInicio(int iAnchoPant, int iAltoPant, Lienzo miLienzo, Camera miCamara) {
         super(iAnchoPant,iAltoPant,miLienzo,miCamara);
@@ -21,13 +17,7 @@ public class EscenarioInicio extends Escenario {
     public void create() {
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
-
-        //Nave principal
-        Dibujable miDibujoNormal = new DibujableAdaptador(new Texture("aliada5azul.png"));
-        Dibujable miExplosion = new DibujableAdaptador(new Texture("explosion.png"));
-        miNave = new NavesAliadas(this.iAnchoPant/2,this.iAltoPant/8,this.iAnchoPant,miDibujoNormal,miExplosion);
-
-        misObjetosEnPantalla.add(miNave);
+        animacionInicio = new ControladorAnimaciones("animacionIntroSprites", "gif", 144, 0.01f);
 
         //Aquí ponemos más objetos que se pintarán al principio
         Dibujable imgInicio = new DibujableAdaptador(new Texture("muchoTexto.png"));
@@ -58,8 +48,6 @@ public class EscenarioInicio extends Escenario {
 
         //La escena parallax
         miPE.animar();
-        miNave.moverse();
-
         //colisiones
 
 
