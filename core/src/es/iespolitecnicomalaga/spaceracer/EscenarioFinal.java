@@ -41,7 +41,7 @@ public class EscenarioFinal extends Escenario{
     protected void controlEstado() {
         super.controlEstado();
         PanelNumeros.getSingleton().setbActivo(true);
-        PanelNumeros.getSingleton().cambiarPosicionYAncho(400,0, 500);
+        PanelNumeros.getSingleton().cambiarPosicionYAncho(570,220, 200);
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         //La escena parallax
         miPE.animar();
