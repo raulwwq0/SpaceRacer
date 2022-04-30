@@ -178,7 +178,7 @@ public class EscenarioJuego extends Escenario{
         if (screenY > (iAltoPant/2)) {
             if (screenX < (iAnchoPant/3)){
                 miNave.velX = -7.0F;
-            } else if (screenX >= iAnchoPant - (iAnchoPant/3)){
+            } else if (screenX >= iAnchoPant - (iAnchoPant/3)){ // aqui se define si es menor o igual que el cuadro de la mitad
                 miNave.velX = 7.0F;
             } else {
                 miNave.velY = -7.0F;
