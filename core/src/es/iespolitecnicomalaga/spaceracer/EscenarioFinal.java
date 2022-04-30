@@ -8,9 +8,7 @@ public class EscenarioFinal extends Escenario{
     //ESTADO
 
     //Aquí definimos los objetos que estarán en la ventana inicial
-    ObjetoVolador teMamaste;
-    ObjetoVolador intentalo;
-    ObjetoVolador puntuacion;
+    ObjetoVolador bloque;
 
     //COMPORTAMIENTO
     public EscenarioFinal(int iAnchoPant, int iAltoPant, Lienzo miLienzo, Camera miCamara) {
@@ -26,23 +24,11 @@ public class EscenarioFinal extends Escenario{
         misAnimaciones.add(animacionFinal);
 
         //Dibujable y estancia del dibujo te mamaste
-        Dibujable dibujoTeMamaste = new DibujableAdaptador(new Texture("temamaste.png"));
-        teMamaste = new ObjetoVolador(200,475,0.0f,0.0f,dibujoTeMamaste);
-        //Dibujable y estancia de intentalo de nuevo
-        Dibujable dibujoIntentalo = new DibujableAdaptador(new Texture("intentalo.png"));
-        intentalo = new ObjetoVolador(230,100,0.0f,0.0f,dibujoIntentalo);
-        //Dibujable y estancia del texto puntuacion
-        Dibujable dibujoPuntuacion = new DibujableAdaptador(new Texture("puntuacion.png"));
-        puntuacion = new ObjetoVolador(730,500,0.0f,0.0f,dibujoPuntuacion);
-        //Añadimos a la array los distintos objetos voladores
-        misObjetosEnPantalla.add(teMamaste);
-        misObjetosEnPantalla.add(intentalo);
-        misObjetosEnPantalla.add(puntuacion);
+        Dibujable bloqueDibujo = new DibujableAdaptador(new Texture("bloqueImagen.png"));
+        bloque = new ObjetoVolador(this.iAnchoPant/2,this.iAltoPant/2,0,0,bloqueDibujo);
 
-        //Y por último la música de este escenario
-        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaFinal.ogg"));
-        miMusica.setLooping(true);
-        miMusica.play();
+        misObjetosEnPantalla.add(bloque);
+
 
     }
 
@@ -74,5 +60,15 @@ public class EscenarioFinal extends Escenario{
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         return super.touchUp(screenX, screenY, pointer, button);
+    }
+
+    public void ponerMusica(){
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaFinal.ogg"));
+        miMusica.setLooping(true);
+        miMusica.play();
+
+    }
+    public void pararMusica(){
+        miMusica.stop();
     }
 }

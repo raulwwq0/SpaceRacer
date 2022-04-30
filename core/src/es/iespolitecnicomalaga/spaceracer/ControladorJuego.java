@@ -117,10 +117,15 @@ public class ControladorJuego {
         miEstadoJuego = nuevoEstado;
         switch (miEstadoJuego) {
             case JUGANDO: escenaActiva = escenaJuego;
+                escenaJuego.ponerMusica();
                 break;
             case PANTALLA_INICIO: escenaActiva = escenaInicio;
+                escenaFinPartida.pararMusica();
+                escenaInicio.ponerMusica();
                 break;
             case FINAL_PARTIDA: escenaActiva = escenaFinPartida;
+                escenaJuego.pararMusica();
+                escenaFinPartida.ponerMusica();
                 break;
         }
 

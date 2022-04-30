@@ -1,5 +1,6 @@
 package es.iespolitecnicomalaga.spaceracer;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 
@@ -196,5 +197,15 @@ public class EscenarioJuego extends Escenario{
 
     public NavesAliadas getNave(){
         return miNave;
+    }
+
+    public void ponerMusica(){
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaJuego.ogg"));
+        miMusica.setLooping(true);
+        miMusica.play();
+
+    }
+    public void pararMusica(){
+        miMusica.stop();
     }
 }

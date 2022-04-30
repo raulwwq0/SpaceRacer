@@ -27,7 +27,7 @@ public class EscenarioInicio extends Escenario {
         //...
 
         //Y por último la música de este escenario
-        miMusica = Gdx.audio.newMusic(Gdx.files.internal("intro.ogg"));
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaInicio.ogg"));
         miMusica.setLooping(true);
         miMusica.play();
 
@@ -66,5 +66,15 @@ public class EscenarioInicio extends Escenario {
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         return super.touchUp(screenX, screenY, pointer, button);
+    }
+
+    public void ponerMusica(){
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaInicio.ogg"));
+        miMusica.setLooping(true);
+        miMusica.play();
+
+    }
+    public void pararMusica(){
+        miMusica.stop();
     }
 }
