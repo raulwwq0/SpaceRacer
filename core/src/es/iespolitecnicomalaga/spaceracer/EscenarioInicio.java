@@ -51,6 +51,9 @@ public class EscenarioInicio extends Escenario {
     protected void controlEstado() {
         super.controlEstado();
 
+        PanelNumeros.getSingleton().setbActivo(false);
+        PanelNumeros.getSingleton().reiniciar();
+
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
 
         //La escena parallax

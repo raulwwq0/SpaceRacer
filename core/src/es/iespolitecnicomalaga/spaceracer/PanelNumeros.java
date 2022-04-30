@@ -124,6 +124,12 @@ public class PanelNumeros {
         fAncho = nAncho;
     }
 
+    public void reiniciar() {
+        iValorAlmacenado = 0;
+        listaMostrada.clear();
+        listaMostrada.add(listaDigitos.get(0));
+    }
+
     //Método dispose. Para eliminar los recursos
     public void dispose() {
         for ( Dibujable t :listaDigitos) {
