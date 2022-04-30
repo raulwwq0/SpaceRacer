@@ -24,8 +24,8 @@ public class ControladorAnimaciones {
         }
     }
 
-    public void pintarse(Lienzo miSB) {
-        miSB.draw(getFrameActual(), 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+    public void pintarse(Lienzo miSB, int anchoPantalla, int altoPantalla) {
+        miSB.draw(getFrameActual(), 0, 0, anchoPantalla, altoPantalla);
     }
 
     private Dibujable getFrameActual() {

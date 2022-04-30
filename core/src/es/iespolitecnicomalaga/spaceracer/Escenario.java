@@ -68,7 +68,7 @@ public class Escenario extends InputAdapter {
         miPE.render(lienzoEscena);
 
         for (ControladorAnimaciones animacion : misAnimaciones) {
-            animacion.pintarse(lienzoEscena);
+            animacion.pintarse(lienzoEscena, iAnchoPant, iAltoPant);
         }
 
         //pintamos los objetos sin más
