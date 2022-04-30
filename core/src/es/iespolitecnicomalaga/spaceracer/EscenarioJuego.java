@@ -62,6 +62,8 @@ public class EscenarioJuego extends Escenario{
         //colisiones
         comprobarColisiones();
         comprobarFuera();
+
+        System.out.println(tiempo + " " + frames + " " + tasaObstaculos);
     }
 
     //Crear obstaculos - Minimo 2 simultaneos, maximo 20
@@ -139,6 +141,12 @@ public class EscenarioJuego extends Escenario{
         if (misObjetosEnPantalla.size() > 1) {
             misObjetosEnPantalla.subList(1, misObjetosEnPantalla.size()).clear();
         }
+
+        // También hay que reiniciar los contadores de los obstaculos
+        tiempo = 0;
+        frames = 0;
+        tasaObstaculos = 0.00f;
+
     }
 
 
