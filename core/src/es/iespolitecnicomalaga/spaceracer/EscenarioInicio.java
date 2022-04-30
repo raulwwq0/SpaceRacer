@@ -31,7 +31,7 @@ public class EscenarioInicio extends Escenario {
 
         //Aquí ponemos más objetos que se pintarán al principio
         Dibujable imgInicio = new DibujableAdaptador(new Texture("muchoTexto.png"));
-        ObjetoVolador imgI = new ObjetoVolador(this.iAltoPant, this.iAltoPant,0,0,imgInicio);
+        ObjetoVolador imgI = new ObjetoVolador(this.iAnchoPant/2,this.iAltoPant/2,0,0,imgInicio);
         misObjetosEnPantalla.add(imgI);
         //...
 
