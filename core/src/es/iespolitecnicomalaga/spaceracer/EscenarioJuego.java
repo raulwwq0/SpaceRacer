@@ -47,7 +47,6 @@ public class EscenarioJuego extends Escenario{
         PanelNumeros.getSingleton().setbActivo(true);
         PanelNumeros.getSingleton().cambiarPosicionYAncho(0,this.iAltoPant - 50, 50);
 
-        System.out.println(PanelNumeros.getSingleton().getValor());
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         miNave.moverse();
         noPuedeMoverse();
@@ -129,8 +128,16 @@ public class EscenarioJuego extends Escenario{
             obstaculo = misObjetosEnPantalla.get(i);
             if (obstaculo.colisiona(xwing) && (miNave.explotar == false)){
                 miNave.explota();
+                borrarMeteoritosDePantalla();
                 ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.FINAL_PARTIDA);
             };
+        }
+    }
+
+    // Con este método eliminamos los meteoritos que existen en la pantalla
+    private void borrarMeteoritosDePantalla(){
+        if (misObjetosEnPantalla.size() > 1) {
+            misObjetosEnPantalla.subList(1, misObjetosEnPantalla.size()).clear();
         }
     }
 

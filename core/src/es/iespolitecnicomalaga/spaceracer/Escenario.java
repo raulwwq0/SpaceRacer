@@ -71,7 +71,6 @@ public class Escenario extends InputAdapter {
 
         // Pintamos el marcador si existe
         if (PanelNumeros.getSingleton().isbActivo()) {
-            System.out.println(PanelNumeros.getSingleton().isbActivo());
             PanelNumeros.getSingleton().pintarse(lienzoEscena);
         }
 

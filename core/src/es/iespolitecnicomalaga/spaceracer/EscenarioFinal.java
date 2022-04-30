@@ -57,7 +57,6 @@ public class EscenarioFinal extends Escenario{
         //La escena parallax
         miPE.animar();
         //colisiones
-        System.out.println(PanelNumeros.getSingleton().getValor());
     }
 
     @Override
