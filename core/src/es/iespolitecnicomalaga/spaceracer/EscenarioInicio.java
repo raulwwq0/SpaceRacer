@@ -17,7 +17,7 @@ public class EscenarioInicio extends Escenario {
     public void create() {
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
-        ControladorAnimaciones animacionInicio = new ControladorAnimaciones("animacionIntroSprites", "gif", 144, 0.01f);
+        ControladorAnimaciones animacionInicio = new ControladorAnimaciones("animacionIntroSprites", "gif", 164, 0.01f);
         misAnimaciones.add(animacionInicio);
 
         //Aquí ponemos más objetos que se pintarán al principio
