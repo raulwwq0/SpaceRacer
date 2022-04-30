@@ -163,21 +163,36 @@ public class EscenarioJuego extends Escenario{
     }
 
     public void noPuedeMoverse() {
-        if ((miNave.posX + (miDibujoNormal.getWidth() / 2)) > iAnchoPant){
-            miNave.posX = iAnchoPant - (miDibujoNormal.getWidth() / 2);
-        }else if ((miNave.posX - (miDibujoNormal.getWidth() / 2)) < 0) miNave.posX = (miDibujoNormal.getWidth() / 2);
+        int mitadDibujoX = miDibujoNormal.getWidth() / 2;
+        int mitadDibujoY = miDibujoNormal.getHeight() / 2;
+
+        if ((miNave.posX + mitadDibujoX) > iAnchoPant) miNave.posX = iAnchoPant - mitadDibujoX;
+        else if ((miNave.posX - mitadDibujoX) < 0) miNave.posX = mitadDibujoX;
+
+        if ((miNave.posY + mitadDibujoY) > iAltoPant) miNave.posY = iAltoPant - mitadDibujoY;
+        else if ((miNave.posY - mitadDibujoY) < 0) miNave.posY = mitadDibujoY;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if (screenX > (iAnchoPant/2)) miNave.velX = 7.0F;
-        else miNave.velX = -7.0F;
+        if (screenY > (iAltoPant/2)) {
+            if (screenX < (iAnchoPant/3)){
+                miNave.velX = -7.0F;
+            } else if (screenX >= iAnchoPant - (iAnchoPant/3)){
+                miNave.velX = 7.0F;
+            } else {
+                miNave.velY = -7.0F;
+            }
+        } else{
+            miNave.velY = 7.0F;
+        }
         return super.touchDown(screenX, screenY, pointer, button);
     }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        miNave.velX = 0F;
+        miNave.velX = 0.0F;
+        miNave.velY = 0.0F;
         return super.touchUp(screenX, screenY, pointer, button);
     }
 
