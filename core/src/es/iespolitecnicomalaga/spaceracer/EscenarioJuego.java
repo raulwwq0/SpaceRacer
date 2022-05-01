@@ -174,16 +174,22 @@ public class EscenarioJuego extends Escenario{
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if (screenY > (iAltoPant/2)) {
-            if (screenX < (iAnchoPant/3)){
-                miNave.velX = -7.0F;
-            } else if (screenX >= iAnchoPant - (iAnchoPant/3)){ // aqui se define si es menor o igual que el cuadro de la mitad
-                miNave.velX = 7.0F;
+        /*cogemos estos datos y no los iAncho e iAlto porque estos datos están limitados a la pantalla
+         y cuando se maximiza o minimiza la pantalla los botones se dispersan (se vuelven locos)
+         */
+        int anchoPant = Gdx.graphics.getWidth();
+        int altoPant = Gdx.graphics.getHeight();
+
+        if (screenY > (altoPant/2)) {
+            if (screenX < (anchoPant/3)){
+                miNave.velX = -7.0F; //derecha
+            } else if (screenX >= anchoPant - (anchoPant/3)){ // se resta para que coja el tercio; el ancho de pantalla es el punto de la derecha
+                miNave.velX = 7.0F; //izquierda
             } else {
-                miNave.velY = -7.0F;
+                miNave.velY = -7.0F; //abajo
             }
         } else{
-            miNave.velY = 7.0F;
+            miNave.velY = 7.0F; //arriba
         }
         return super.touchDown(screenX, screenY, pointer, button);
     }
