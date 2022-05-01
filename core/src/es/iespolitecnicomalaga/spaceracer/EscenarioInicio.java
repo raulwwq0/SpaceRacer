@@ -1,7 +1,6 @@
 package es.iespolitecnicomalaga.spaceracer;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 
@@ -17,7 +16,7 @@ public class EscenarioInicio extends Escenario {
     public void create() {
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
-        ControladorAnimaciones animacionInicio = new ControladorAnimaciones("animacionIntroSprites", "gif", 164, 0.01f);
+        Animacion animacionInicio = new Animacion("animacionIntroSprites", "png", 164, 0.01f);
         misAnimaciones.add(animacionInicio);
 
         //Aquí ponemos más objetos que se pintarán al principio

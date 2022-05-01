@@ -6,8 +6,6 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;
 
@@ -24,7 +22,7 @@ public class Escenario extends InputAdapter {
     Music miMusica;
     ArrayList<ObjetoVolador> misObjetosEnPantalla;
     ParallaxEscena miPE;
-    ArrayList<ControladorAnimaciones> misAnimaciones;
+    ArrayList<Animacion> misAnimaciones;
 
     //COMPORTAMIENTO
 
@@ -67,7 +65,7 @@ public class Escenario extends InputAdapter {
 
         miPE.render(lienzoEscena);
 
-        for (ControladorAnimaciones animacion : misAnimaciones) {
+        for (Animacion animacion : misAnimaciones) {
             animacion.pintarse(lienzoEscena, iAnchoPant, iAltoPant);
         }
 
