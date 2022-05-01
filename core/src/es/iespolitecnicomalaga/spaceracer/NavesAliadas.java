@@ -19,6 +19,10 @@ public class NavesAliadas extends NaveEspacial {
     //Ancho de la pantalla, para no movernos fuera...
     private int anchoPant;
 
+    // Guardamos la posición inicial de la nave para que al revivir esté en el centro
+    private float posInicialX;
+    private float posInicialY;
+
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //COMPORTAMIENTO
@@ -31,6 +35,8 @@ public class NavesAliadas extends NaveEspacial {
 
     public NavesAliadas(float nuevaPosX,float nuevaPosY, int anchoPantalla, Dibujable miDibujoNormal, Dibujable miDibujoExplosion) {
         super(nuevaPosX, nuevaPosY, VELOCIDAD_INICIAL_X, VELOCIDAD_INICIAL_Y, miDibujoNormal, miDibujoExplosion);
+        posInicialX = nuevaPosX;
+        posInicialY = nuevaPosY;
         anchoPant = anchoPantalla;
     }
 
@@ -38,5 +44,9 @@ public class NavesAliadas extends NaveEspacial {
 
     public void revivir(){
         this.explotar = false;
+
+        // Cambiamos la posición de la nave a la posición inicial
+        this.posX = posInicialX;
+        this.posY = posInicialY;
     }
 }
