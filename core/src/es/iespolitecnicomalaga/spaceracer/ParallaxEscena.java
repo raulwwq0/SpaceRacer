@@ -24,9 +24,8 @@ public class ParallaxEscena {
     private Fondo fondo1;
     private Fondo fondo2;
 
-    private static final String FILE_FONDO1 = "fondo1.png";
-    private static final String FILE_FONDO2 = "fondo2.png";
-    private static final String FILE_FONDO3 = "sp_front_big.png";
+    private static final String FILE_FONDO1 = "visual/spritesParallax/fondo.png";
+    private static final String FILE_FONDO2 = "visual/spritesParallax/luna.png";
     /////////////////////////////////////////////////////////////////////////////////////
     //
     //COMPORTAMIENTO
@@ -34,16 +33,13 @@ public class ParallaxEscena {
     /////////////////////////////////////////////////////////////////////////////////////
 
     //CONSTRUCTOR
-    public  ParallaxEscena(boolean bIntro) {
+    public  ParallaxEscena() {
 
         tamVentanaX = Gdx.graphics.getWidth();
         tamVentanaY = Gdx.graphics.getHeight();
         fondo1 = new Fondo(FILE_FONDO1, 0, -0.4f, 0, 0, tamVentanaX, tamVentanaY);
-        if (bIntro) {
-            fondo2 = new Fondo(FILE_FONDO3, 0, 0, 0, 0, tamVentanaX, tamVentanaY);
-        } else {
-            fondo2 = new Fondo(FILE_FONDO2, 0, -0.8f, 0, 0, tamVentanaX, tamVentanaY);
-        }
+        fondo2 = new Fondo(FILE_FONDO2, 0, -0.8f, 0, 0, tamVentanaX, tamVentanaY);
+
         tamEscenaY = fondo1.getAltoFondo();
         tamEscenaX = fondo1.getAnchoFondo();
 

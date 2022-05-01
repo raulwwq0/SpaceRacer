@@ -21,7 +21,7 @@ public class PanelNumeros {
 
     //Constantes
 
-    private static final String NOMBRE_SPRITES = "digito";
+    private static final String NOMBRE_SPRITES = "visual/spritesDigitos/digito";
     private static final String EXT_SPRITES =".png";
 
 

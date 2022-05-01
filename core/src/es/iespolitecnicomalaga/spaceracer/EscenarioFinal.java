@@ -20,11 +20,11 @@ public class EscenarioFinal extends Escenario{
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
 
-        Animacion animacionFinal = new Animacion("animacionFinalSprites", "png", 82, 0.01f);
+        Animacion animacionFinal = new Animacion("visual/animacionFinalSprites", "png", 82, 0.01f);
         misAnimaciones.add(animacionFinal);
 
         //Dibujable y estancia del dibujo te mamaste
-        Dibujable bloqueDibujo = new DibujableAdaptador(new Texture("bloqueImagen.png"));
+        Dibujable bloqueDibujo = new DibujableAdaptador(new Texture("visual/spritesVarios/bloqueImagen.png"));
         bloque = new ObjetoVolador(this.iAnchoPant/2,this.iAltoPant/2,0,0,bloqueDibujo);
 
         misObjetosEnPantalla.add(bloque);
@@ -63,7 +63,7 @@ public class EscenarioFinal extends Escenario{
     }
 
     public void ponerMusica(){
-        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaFinal.ogg"));
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("audio/musica/musicaFinal.ogg"));
         miMusica.setLooping(true);
         miMusica.play();
 

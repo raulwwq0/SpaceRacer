@@ -16,17 +16,17 @@ public class EscenarioInicio extends Escenario {
     public void create() {
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
-        Animacion animacionInicio = new Animacion("animacionIntroSprites", "png", 164, 0.01f);
+        Animacion animacionInicio = new Animacion("visual/animacionIntroSprites", "png", 164, 0.01f);
         misAnimaciones.add(animacionInicio);
 
         //Aquí ponemos más objetos que se pintarán al principio
-        Dibujable imgInicio = new DibujableAdaptador(new Texture("muchoTexto.png"));
+        Dibujable imgInicio = new DibujableAdaptador(new Texture("visual/spritesVarios/muchoTexto.png"));
         ObjetoVolador imgI = new ObjetoVolador(this.iAnchoPant/2,this.iAltoPant/2,0,0,imgInicio);
         misObjetosEnPantalla.add(imgI);
         //...
 
         //Y por último la música de este escenario
-        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaInicio.ogg"));
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("audio/musica/musicaInicio.ogg"));
         miMusica.setLooping(true);
         miMusica.play();
 
@@ -69,7 +69,7 @@ public class EscenarioInicio extends Escenario {
     }
 
     public void ponerMusica(){
-        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaInicio.ogg"));
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("audio/musica/musicaInicio.ogg"));
         miMusica.setLooping(true);
         miMusica.play();
 
