@@ -20,7 +20,7 @@ public class EscenarioFinal extends Escenario{
         super.create();
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
 
-        Animacion animacionFinal = new Animacion("visual/animacionFinalSprites", "png", 82, 0.01f);
+        Animacion animacionFinal = new Animacion("visual/animacionFinalSprites", "png", 119, 0.01f);
         misAnimaciones.add(animacionFinal);
 
         //Dibujable y estancia del dibujo te mamaste
