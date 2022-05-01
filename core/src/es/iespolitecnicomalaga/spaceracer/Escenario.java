@@ -33,7 +33,7 @@ public class Escenario extends InputAdapter {
         camaraEscena = miCamara;
         misObjetosEnPantalla = new ArrayList<>();
         miMusica = null;
-        miPE = new ParallaxEscena(false);
+        miPE = new ParallaxEscena();
         misAnimaciones = new ArrayList<>();
         this.create();
 

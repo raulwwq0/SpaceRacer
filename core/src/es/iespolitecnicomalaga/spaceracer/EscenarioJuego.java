@@ -32,11 +32,11 @@ public class EscenarioJuego extends Escenario{
         //Ahora ponemos aquí objetos y los añadimos al contenedor (arraylist) heredado de nuestro padre
 
         //Nave principal
-        miDibujoNormal = new DibujableAdaptador(new Texture("aliada5azul.png"));
-        Dibujable miExplosion = new DibujableAdaptador(new Texture("explosion.png"));
+        miDibujoNormal = new DibujableAdaptador(new Texture("visual/spritesVarios/nave.png"));
+        Dibujable miExplosion = new DibujableAdaptador(new Texture("visual/spritesVarios/explosion.png"));
         miNave = new NavesAliadas(this.iAnchoPant/2, this.iAltoPant / 8, this.iAnchoPant, miDibujoNormal, miExplosion);
 
-        imagenObstaculo = new DibujableAdaptador(new Texture("pedrada.png"));
+        imagenObstaculo = new DibujableAdaptador(new Texture("visual/spritesVarios/pedrolo.png"));
 
         misObjetosEnPantalla.add(miNave);
         tiempo = 0;
@@ -206,7 +206,7 @@ public class EscenarioJuego extends Escenario{
     }
 
     public void ponerMusica(){
-        miMusica = Gdx.audio.newMusic(Gdx.files.internal("musicaJuego.ogg"));
+        miMusica = Gdx.audio.newMusic(Gdx.files.internal("audio/musica/musicaJuego.ogg"));
         miMusica.setLooping(true);
         miMusica.play();
 

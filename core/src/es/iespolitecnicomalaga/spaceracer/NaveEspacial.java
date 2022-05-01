@@ -46,7 +46,7 @@ public class NaveEspacial extends ObjetoVolador {
     public NaveEspacial(float nuevaPosX,float nuevaPosY,float nuevaVelX, float nuevaVelY, Dibujable miDibujoNormal,Dibujable miDibujoExplosion) {
         super(nuevaPosX, nuevaPosY, nuevaVelX, nuevaVelY, miDibujoNormal);
         imgExplosion = miDibujoExplosion;
-        sonidoExplotar = Gdx.audio.newSound(Gdx.files.internal("damage1.wav"));
+        sonidoExplotar = Gdx.audio.newSound(Gdx.files.internal("audio/sonido/damage1.wav"));
         explotar = false;
         pasos = 0;
 
