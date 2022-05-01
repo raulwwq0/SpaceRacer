@@ -26,7 +26,7 @@ public class EscenarioFinal extends Escenario{
         //Dibujable y estancia del dibujo te mamaste
         Dibujable bloqueDibujo = new DibujableAdaptador(new Texture("visual/spritesVarios/bloqueImagen.png"));
         bloque = new ObjetoVolador(this.iAnchoPant/2,this.iAltoPant/2,0,0,bloqueDibujo);
-
+        //añadimos el objeto en la array
         misObjetosEnPantalla.add(bloque);
 
 
