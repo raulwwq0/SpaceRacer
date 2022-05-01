@@ -36,4 +36,7 @@ public class NavesAliadas extends NaveEspacial {
 
     //Resto de comportamiento
 
+    public void revivir(){
+        this.explotar = false;
+    }
 }

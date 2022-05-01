@@ -59,6 +59,7 @@ public class EscenarioInicio extends Escenario {
         //¿Qué pasa si pulsan la pantalla, pues que nos vamos a la pantalla del juego... Hay que notificar al controlador
         //principal para que cambie el escenario
         miMusica.stop();
+        ControladorJuego.getSingleton().escenaJuego.getMiNave().revivir(); //A partir de la segunda partida, la nave se encuentra 'muerta'
         ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.JUGANDO);
         return super.touchDown(screenX, screenY, pointer, button);
     }

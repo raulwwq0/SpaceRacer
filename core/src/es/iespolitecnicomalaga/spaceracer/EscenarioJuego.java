@@ -208,4 +208,9 @@ public class EscenarioJuego extends Escenario{
     public void pararMusica(){
         miMusica.stop();
     }
+
+    //Metodo que devuelve la nave del juego, para modificarla desde otros escenarios
+    public NavesAliadas getMiNave(){
+        return miNave;
+    }
 }
