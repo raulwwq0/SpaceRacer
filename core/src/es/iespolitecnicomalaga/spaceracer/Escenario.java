@@ -87,6 +87,13 @@ public class Escenario extends InputAdapter {
         for (ObjetoVolador miOV:misObjetosEnPantalla) {
             miOV.dispose();
         }
+
+        for (Animacion miAnimacion:misAnimaciones) {
+            miAnimacion.dispose();
+        }
+
+        PanelNumeros.getSingleton().dispose();
+
         if (miMusica != null)
             miMusica.dispose();
     }

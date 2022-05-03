@@ -4,27 +4,20 @@ import com.badlogic.gdx.graphics.Texture;
 
 import java.util.ArrayList;
 
-/**
- * Clase PanelNumeros. Se trata de crear una estructura de datos de texture con los números del 0 al 9
- * precargados. Tendrá un método que dado un integer (ahora mismo sólo positivos) prepare un arraylist
- * de imágenes que puedan después pintarse en el SpriteBatch para formar ese número en pantalla
- * Se usará posteriormente para pintar la puntuación, vidas, etc en pantalla
- */
-
 public class PanelNumeros {
 
-    /////////////////////////////////////////////////////////////////////////////////////
-    //
-    //ESTADO
-    //
-    /////////////////////////////////////////////////////////////////////////////////////
+    // Atributos ###################################################################################
 
     //Constantes
-
     private static final String NOMBRE_SPRITES = "visual/spritesDigitos/digito";
     private static final String EXT_SPRITES =".png";
 
 
+    /*
+        Para poder usar el mismo marcador en las clases EscenarioJuego y EscenarioFinal vamos a
+        implementarlo usando un singleton, así solo tendremos un marcador para todas las clases
+        que lo necesiten y siempre será el mismo.
+     */
     public static PanelNumeros miSingleton;
 
     //Almacenaremos números de base en un array list "digitos"
@@ -38,17 +31,13 @@ public class PanelNumeros {
     protected float fPosY;
     protected float fAncho;
 
+    // Valor del contador
     protected int iValorAlmacenado;
 
+    // Para saber si está activo (visible) o no, ya que en EscenarioInicio no se pinta el marcador
     private boolean bActivo;
-    /////////////////////////////////////////////////////////////////////////////////////
-    //
-    //COMPORTAMIENTO
-    //
-    /////////////////////////////////////////////////////////////////////////////////////
 
-
-    //CONSTRUCTORES
+    // Constructor #################################################################################
     private PanelNumeros() {
         fPosX = 0;
         fPosY = 0;
@@ -68,6 +57,7 @@ public class PanelNumeros {
 
     }
 
+    // Singleton ###################################################################################
     public static PanelNumeros getSingleton() {
         if (miSingleton == null) {
             miSingleton = new PanelNumeros();
@@ -75,9 +65,9 @@ public class PanelNumeros {
         return miSingleton;
     }
 
-    //Resto de comportamientos
+    // Métodos #####################################################################################
 
-    //Método pintarse
+    // Pintamos los dígitos del marcador
     public void pintarse(Lienzo miSB) {
         float pX,pY;
         pX = fPosX;
@@ -87,21 +77,6 @@ public class PanelNumeros {
             pX += fAncho;
         }
 
-    }
-
-    //Asignar el número:
-    public void setData(int iValor) {
-
-        if (iValor > 0) {
-            iValorAlmacenado = iValor;
-            listaMostrada.clear();
-            String sNumero = String.valueOf(iValor);
-            for (int i=0; i<sNumero.length();i++) {
-                String digito = String.valueOf(sNumero.charAt(i));
-
-                listaMostrada.add(listaDigitos.get(Integer.valueOf(digito)));
-            }
-        }
     }
 
     //Método incremento
@@ -124,6 +99,7 @@ public class PanelNumeros {
         fAncho = nAncho;
     }
 
+    // Borrar el marcador (para cuando se reinicia el juego)
     public void reiniciar() {
         iValorAlmacenado = 0;
         listaMostrada.clear();
@@ -137,16 +113,14 @@ public class PanelNumeros {
         }
     }
 
+    // Para saber si el marcador está activo o no
     public boolean isbActivo() {
         return bActivo;
     }
 
+    // Para poner el marcador activo o no
     public void setbActivo(boolean bActivo) {
         this.bActivo = bActivo;
-    }
-
-    public int getValor() {
-        return iValorAlmacenado;
     }
 }
 
