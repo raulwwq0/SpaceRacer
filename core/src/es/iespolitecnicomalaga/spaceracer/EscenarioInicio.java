@@ -41,9 +41,6 @@ public class EscenarioInicio extends Escenario {
     protected void controlEstado() {
         super.controlEstado();
 
-        PanelNumeros.getSingleton().setbActivo(false);
-        PanelNumeros.getSingleton().reiniciar();
-
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
 
         //La escena parallax
@@ -60,6 +57,9 @@ public class EscenarioInicio extends Escenario {
         miMusica.stop();
         ControladorJuego.getSingleton().escenaJuego.getMiNave().revivir(); //A partir de la segunda partida, la nave se encuentra 'muerta'
         ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.JUGANDO);
+        PanelNumeros.getSingleton().setbActivo(true);
+        PanelNumeros.getSingleton().cambiarPosicionYAncho(0,this.iAltoPant - 50, 50);
+
         return super.touchDown(screenX, screenY, pointer, button);
     }
 

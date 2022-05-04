@@ -40,8 +40,6 @@ public class EscenarioFinal extends Escenario{
     @Override
     protected void controlEstado() {
         super.controlEstado();
-        PanelNumeros.getSingleton().setbActivo(true);
-        PanelNumeros.getSingleton().cambiarPosicionYAncho(30,45, 300);
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         //La escena parallax
         miPE.animar();
@@ -53,6 +51,8 @@ public class EscenarioFinal extends Escenario{
         //¿Qué pasa si pulsan la pantalla, pues que nos vamos a la pantalla del juego... Hay que notificar al controlador
         //principal para que cambie el escenario
         miMusica.stop();
+        PanelNumeros.getSingleton().setbActivo(false);
+        PanelNumeros.getSingleton().reiniciar();
         ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.PANTALLA_INICIO);
         return super.touchDown(screenX, screenY, pointer, button);
     }

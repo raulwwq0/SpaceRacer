@@ -45,9 +45,6 @@ public class EscenarioJuego extends Escenario{
     }
     @Override
     protected void controlEstado() {
-        PanelNumeros.getSingleton().setbActivo(true);
-        PanelNumeros.getSingleton().cambiarPosicionYAncho(0,this.iAltoPant - 50, 50);
-
         //Aquí debemos de animar los objetos: moverlos. Controlar las colisiones. Controlar si hemos finalizado, sumar puntos
         miNave.moverse();
         noPuedeMoverse();
@@ -130,6 +127,8 @@ public class EscenarioJuego extends Escenario{
             if (obstaculo.colisiona(xwing) && (miNave.explotar == false)){
                 miNave.explota();
                 borrarMeteoritosDePantalla();
+                PanelNumeros.getSingleton().setbActivo(true);
+                PanelNumeros.getSingleton().cambiarPosicionYAncho(30,45, 300);
                 ControladorJuego.getSingleton().cambiarEscena(ControladorJuego.EstadoJuego.FINAL_PARTIDA);
             };
         }
